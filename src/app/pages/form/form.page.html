@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+     form
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding" color="light">
+  <h2>Welcome {{ authUser?.name }}</h2>
+  <app-feed-update [loginUser]="authUser"></app-feed-update>
+<app-feed-card [loginUser]="authUser"></app-feed-card>
+  <ol><li>
+    <ion-label>If you have the following symptom(s), please tick “¨” the relevant box(es)</ion-label>
+ <ion-list>
+   <ion-item *ngFor="let entry of form">
+    <ion-checkbox slot="start" [(ngModel)]="entry.isChecked"></ion-checkbox>
+      <ion-label>{{entry.val}}</ion-label>      
+   </ion-item>
+ </ion-list>
+</li></ol>
+
+</ion-content>
